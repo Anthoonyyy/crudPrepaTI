@@ -24,3 +24,18 @@ try {
 } catch (Exception $e) {
     die($e->getMessage());
 }
+
+
+// rooter
+
+if (isset($_SESSION['username'])) {
+    //appel du contrôleur admin
+    require_once "../controller/adminController.php";
+} else {
+    //appel du contrôleur public
+    require_once "../controller/publicController.php";
+}
+
+//fermeture de la connexion 
+
+$db = null;
