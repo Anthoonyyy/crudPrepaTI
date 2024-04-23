@@ -11,3 +11,8 @@ nav ul li {
 #comment {
     color: rgb(4, 71, 15);
 }
+
+#map {
+    width: 50%;
+    height: 300px;
+}
