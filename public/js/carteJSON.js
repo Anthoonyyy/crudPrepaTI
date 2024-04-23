@@ -1,6 +1,6 @@
 // Définition du centre de la carte et du zoom
 
-const map = L.map('map').setView([50.8466, 4.3528], 16);
+const map = L.map('map').setView([50.8466, 4.3528], 13);
 
 //Ajout du fond de carte
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -20,3 +20,64 @@ fetch("apicarte.php")
     .catch(function (error) {
         console.log(error.message);
     });
+
+// Création d'un tableau de marqueurs pour un affichage avec featureGroup
+const markerTable = [];
+
+function afficheMarqueurs(liste) {
+
+    //Boucle pour créer les marqueurs de la liste
+    for (let item in liste) {
+        //Crée un marqueur pour chaque élément de la liste
+        let unMarqueur = L.marker([liste[item].latitude, liste[item].longitude]).addTo(map);
+
+        //Ajout du nom de l'item dans un popup
+        unMarqueur.bindPopup(`<h3>${liste[item].title}</h3> <p>${liste[item].geolocdesc}</p>`);
+
+        //Ajout de ce marqueur au tableau
+        markerTable.push(unMarqueur);
+    }
+
+    // Placement du tableau de marqueurs dans le featureGroup 
+    const groupe = new L.featureGroup(markerTable);
+
+    // On adapte l'affichage de la carte en fonction de la position des marqueurs
+
+    map.fitBounds(groupe.getBounds());
+}
+
+function afficheListe(liste) {
+    const divListe = document.getElementById('liste');
+    const ul = document.createElement("ul");
+
+    liste.forEach(function (item, index) {
+        //Créer l'élément de type li
+        let li = document.createElement("li");
+        //remplir le li
+        li.innerHTML = `${item.title} | ${item.geolocdesc}`;
+        //Ajoute un eventListener sur l'event clic
+        li.addEventListener('click', itemClick);
+        //ajouter un attribut à cet item li pour l'identifier
+        li.setAttribute("id", `${item.idgeoloc}`);
+        //Ajoute un attribut à cet item li pour stocker les coordonnées
+        li.setAttribute("latitude", `${item.latitude}`);
+        li.setAttribute("longitude", `${item.longitude}`);
+
+        //attacher ce li au ul
+        ul.appendChild(li);
+    });
+
+    //attacher la liste ul au div
+    divListe.appendChild(ul);
+}
+
+function itemClick() {
+    let id = this.getAttribute("id");
+    let latitude = this.getAttribute("latitude");
+    let longitude = this.getAttribute("longitude");
+
+    console.log('item cliqué : ' + id);
+    let marqueur = markerTable[id - 1];
+    marqueur.togglePopup();
+    map.flyTo([latitude, longitude], 13);
+}
