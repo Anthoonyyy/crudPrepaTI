@@ -9,6 +9,33 @@ if (isset($_GET['disconnect'])) {
     exit();
 }
 
+//Si on veut créer un lieu
+if (isset($_GET['create'])) {
+
+    //Si on a cliqué sur insérer
+    if (isset(
+        $_POST['title'],
+        $_POST['geolocdesc'],
+        $_POST['latitude'],
+        $_POST['longitude']
+    )) {
+        $title = htmlspecialchars(strip_tags(trim($_POST['title'])), ENT_QUOTES) .
+            $geolocdesc = htmlspecialchars(trim($_POST['geolocdesc']), ENT_QUOTES);
+        $latitude = (float) $_POST['latitude'];
+        $longitude = (float) $_POST['longitude'];
+
+        $insert = insertOneGeolocById($db, $title, $geolocdesc, $latitude, $longitude);
+
+        if ($insert === true) {
+            header("Location: ./");
+            exit();
+        }
+    }
+
+    //chargement de la vue
+    include "../view/admin/admin.insert.view.html.php";
+}
+
 //si on a cliqué sur update et qu'on'accepte que les chiffres dans le string ['update']
 if (isset($_GET['update']) && ctype_digit($_GET['update'])) {
     //conversion en int
