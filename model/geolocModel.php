@@ -37,3 +37,30 @@ function getOneGeolocById(PDO $db, int $id): string|bool|array
         return $e->getMessage();
     }
 }
+
+
+// Fonction qui  update tous les champs d'un élément de geoloc grâce à son idgeoloc
+// En lui passant TOUTES les variables en paramètre
+// nous renvoie false en cas d'échec ou le message d'erreur sql
+// ou un true en cas de succès
+
+function updateOneGeolocById(PDO $db, int $idgeoloc, string $title, string $desc, float $lat, float $lon): string|bool
+{
+    $sql = "UPDATE `geoloc` SET `title`= ? , `geolocdesc`= ?, `latitude`= ?, `longitude`= ? WHERE `idgeoloc`= ?";
+    $stmt = $db->prepare($sql);
+    try {
+        $stmt->execute([
+            $title,
+            $desc,
+            $lat,
+            $lon,
+            $idgeoloc
+        ]);
+        // pas de modification par la requête
+        if ($stmt->rowCount() === 0) return false;
+
+        return true;
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
+}
