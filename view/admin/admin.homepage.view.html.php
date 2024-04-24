@@ -10,6 +10,7 @@
 
 <body>
     <h1>Accueil de l'administration</h1>
+    <p>Administration des lieux de notre site</p>
     <nav>
         <ul>
             <li>Accueil de l'administration</li>
@@ -18,7 +19,7 @@
         </ul>
     </nav>
     <div id="content">
-        <h3>Liste de nos lieux</h3>
+        <h3>Administration des datas</h3>
         <?php
         // datas est une chaîne de caractère : erreur SQL !
         if (is_string($datas)) :
@@ -35,16 +36,16 @@
             // on compte le nombre de données 
             $nb = count($datas);
         ?>
-            <h3>Il y a <?= $nb ?> <?= $nb > 1 ? "lieux" : "lieu" ?></h3>
+            <!-- <h3>Il y a <?= $nb ?> <?= $nb > 1 ? "lieux" : "lieu" ?></h3>-->
             <table>
                 <tr>
-                    <th>idgeoloc</th>
-                    <th>title</th>
-                    <th>geolocdesc</th>
-                    <th>latitude</th>
-                    <th>longitude</th>
-                    <th>update</th>
-                    <th>delete</th>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
                 </tr>
 
                 <?php
