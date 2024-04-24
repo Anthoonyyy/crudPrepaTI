@@ -58,8 +58,8 @@
                         <td><?= $data['geolocdesc'] ?></td>
                         <td><?= $data['latitude'] ?></td>
                         <td><?= $data['longitude'] ?></td>
-                        <td><a href="?update=<?= $data['idgeoloc'] ?>"><img src="img/edit.png" alt="update" /></a></td>
-                        <td><a href="?delete=<?= $data['idgeoloc'] ?>"><img src="img/delete-file.png" alt="delete" /></a></td>
+                        <td><a href="?update=<?= $data['idgeoloc'] ?>"><img src="../img/editIcone.png" alt="update" /></a></td>
+                        <td><a href="?delete=<?= $data['idgeoloc'] ?>"><img src="../img/deleteIcon.png" alt="delete" /></a></td>
 
                     </tr>
                 <?php endforeach ?>
