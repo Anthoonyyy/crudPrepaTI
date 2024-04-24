@@ -57,7 +57,7 @@ if (isset($_GET['delete']) && ctype_digit($_GET['delete'])) {
     }
 
     // chargement de l'article pour la suppression
-    $getOneGeoLoc = getOneGeolocById($db, $idDelete);
+    $getOneGeoloc = getOneGeolocById($db, $idDelete);
 
     //chargement de la vue
     include "../view/admin/admin.delete.view.html.php";
@@ -99,7 +99,7 @@ if (isset($_GET['update']) && ctype_digit($_GET['update'])) {
         }
     }
     //Chargement de l'article pour l'update
-    $getOneGeoLoc = getOneGeolocByID($db, $idUpdate);
+    $getOneGeoloc = getOneGeolocByID($db, $idUpdate);
     // var_dump($getOneGeoLoc);
 
     //chargement de la vue
