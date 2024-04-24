@@ -34,6 +34,7 @@ if (isset($_GET['create'])) {
 
     //chargement de la vue
     include "../view/admin/admin.insert.view.html.php";
+    exit();
 }
 
 // si on a cliqué sur supprimer un lieu
