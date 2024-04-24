@@ -64,3 +64,23 @@ function updateOneGeolocById(PDO $db, int $idgeoloc, string $title, string $desc
         return $e->getMessage();
     }
 }
+
+//Fonction qui insére un nouveau lieu
+
+function insertOneGeolocById(PDO $db, string $title, string $desc, float $lat, float $lon): bool|string
+{
+    $sql = "INSERT INTO `geoloc` (`title`,`geolocdesc`,`latitude`,`longitude`) VALUES (?,?,?,?);";
+    $prepare = $db->prepare($sql);
+    try {
+        $prepare->execute([
+            $title,
+            $desc,
+            $lat,
+            $lon
+        ]);
+
+        return true;
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
+}
