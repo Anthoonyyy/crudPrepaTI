@@ -13,12 +13,28 @@
 <body>
     <h1>Accueil de l'administration</h1>
     <p>Administration des lieux de notre site</p>
-    <nav>
-        <ul>
-            <li>Accueil de l'administration</li>
-            <li><a href="?create">Ajouter un lieu</a></li>
-            <li><a href="?disconnect">Déconnexion</a></li>
-        </ul>
+
+    <nav class="navbar navbar-expand-sm  ">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Accueil de l'administration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?create">Ajouter un lieu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?disconnect">Déconnexion</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </nav>
     <div id="content">
         <h3>Administration des datas</h3>
