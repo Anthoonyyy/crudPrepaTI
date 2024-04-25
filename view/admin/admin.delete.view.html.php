@@ -11,14 +11,10 @@
 </head>
 
 <body>
-    <h1>Suppression d'un lieu</h1>
-    <nav>
-        <ul>
-            <li><a href="./">Accueil de l'administration</li>
-            <li><a href="?create">Ajouter un lieu</a></li>
-            <li><a href="?disconnect">Déconnexion</a></li>
-        </ul>
-    </nav>
+    <h1 class="text-center mt-4">Suppression d'un lieu</h1>
+    <?php
+    include "inc/navbar.php";
+    ?>
     <div id="content">
         <h3>Article à supprimer</h3>
 
