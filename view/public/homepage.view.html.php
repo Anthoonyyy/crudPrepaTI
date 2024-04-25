@@ -12,16 +12,32 @@
 </head>
 
 <body>
-    <h1>Accueil</h1>
-    <nav>
-        <ul>
-            <li>Accueil</li>
-            <li><a href="?json" target="_blank">API</a>format JSON</li>
-            <li><a href="?connect">Connexion</a></li>
-        </ul>
+    <h1 class="text-center mt-3">Accueil</h1>
+    <nav class="navbar navbar-expand-sm mt-5">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?json" target="_blank">API format JSON</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?connect">Connexion</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </nav>
+
     <div id="content">
-        <h3>Liste de nos lieux</h3>
+        <h3 class="text-center mt-3">Liste de nos lieux</h3>
         <?php
         /*
         // datas est une chaine de caractère : erreur SQL ! 
@@ -66,7 +82,8 @@
     </div>
 
     <!--JS de leaflet-->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src=" https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">
+    </script>
 
     <!--Mon JS-->
     <script src="../js/carteJSON.js"></script>
