@@ -11,24 +11,52 @@
 </head>
 
 <body>
-    <h1>Connexion</h1>
-    <nav>
-        <ul>
-            <li><a href="./">Accueil</a></li>
-            <li><a href="?json" target="_blank">API</a> format JSON</li>
-            <li>Connexion</li>
-        </ul>
+    <h1 class="text-center mt-3">Connexion</h1>
+    <nav class="navbar navbar-expand-sm mt-5">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?json" target="_blank">API format JSON</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?connect">Connexion</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </nav>
     <div id="content">
-        <h3>Connexion à notre administration</h3>
+        <h3 class="text-center mt-4">Connexion à notre administration</h3>
         <?php if (isset($error)) : ?>
-            <h4 id="alert"><?= $error ?></h4>
+            <h4 id="alert" class="text-center"><?= $error ?></h4>
         <?php endif ?>
-        <form action="" method="POST" name="connexion">
-            <input type="text" name="username" placeholder="Votre login" required><br>
-            <input type="password" name="userpwd" placeholder="Votre mot de passe" required><br>
-            <input type="submit" value="connexion">
-        </form>
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <form method="POST" name="connexion" action="">
+                    <div class="mb-3">
+                        <label for="username" class=" form-label">Login</label>
+                        <input type="text" name="username" placeholder="Votre login" class="form-control" id="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userpwd" class="form-label">Mot de passe</label>
+                        <input type="password" placeholder="Votre mot de passe" name="userpwd" class="form-control" id="userpwd" required>
+                    </div>
+                    <div class="mb-3 text-center">
+                        <input type="submit" value="connexion" class="btn btn-outline-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <?php //var_dump($_POST)
         ?>
     </div>
