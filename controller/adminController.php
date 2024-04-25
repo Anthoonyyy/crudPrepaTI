@@ -19,8 +19,8 @@ if (isset($_GET['create'])) {
         $_POST['latitude'],
         $_POST['longitude']
     )) {
-        $title = htmlspecialchars(strip_tags(trim($_POST['title'])), ENT_QUOTES) .
-            $geolocdesc = htmlspecialchars(trim($_POST['geolocdesc']), ENT_QUOTES);
+        $title = htmlspecialchars(strip_tags(trim($_POST['title'])), ENT_QUOTES);
+        $geolocdesc = htmlspecialchars(trim($_POST['geolocdesc']), ENT_QUOTES);
         $latitude = (float) $_POST['latitude'];
         $longitude = (float) $_POST['longitude'];
 
