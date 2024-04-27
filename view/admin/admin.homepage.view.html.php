@@ -42,40 +42,42 @@
             <section class="container">
                 <div class="row">
                     <div class="col-12">
-                        <table class="table table-bordered" data-toggle="table" data-show-columns="true" data-search="false" data-pagination="true" data-checkbox-header="true">
-                            <thead>
-                                <tr>
-                                    <th data-checkbox="true" data-click-to-select="true">Id</th>
-                                    <th class="text-center">Titre</th>
-                                    <th class="text-center">Description</th>
-                                    <th class="text-center">Latitude</th>
-                                    <th class="text-center">Longitude</th>
-                                    <th class="text-center">Modifier</th>
-                                    <th class="text-center">Supprimer</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                // tant qu'on a des données
-                                // var_dump($datas);
-
-                                foreach ($datas as $data) :
-                                ?>
-
+                        <div class="table-responsive">
+                            <table class="table table-bordered" data-toggle="table" data-show-columns="true" data-search="true" data-pagination="true" data-checkbox-header="false">
+                                <thead>
                                     <tr>
-                                        <td><?= $data['idgeoloc'] ?></td>
-                                        <td><?= $data['title'] ?></td>
-                                        <td><?= $data['geolocdesc'] ?></td>
-                                        <td><?= $data['latitude'] ?></td>
-                                        <td><?= $data['longitude'] ?></td>
-                                        <td class="text-center"><a href="?update=<?= $data['idgeoloc'] ?>"><img src="../img/editIcone.png" alt="update" /></a></td>
-                                        <td class="text-center"><a href="?delete=<?= $data['idgeoloc'] ?>"><img src="../img/deleteIcon.png" alt="delete" /></a></td>
-
+                                        <th data-checkbox="true" data-click-to-select="true">Id</th>
+                                        <th class="text-center">Titre</th>
+                                        <th class="text-center">Description</th>
+                                        <th class="text-center">Latitude</th>
+                                        <th class="text-center">Longitude</th>
+                                        <th class="text-center">Modifier</th>
+                                        <th class="text-center">Supprimer</th>
                                     </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    // tant qu'on a des données
+                                    // var_dump($datas);
 
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
+                                    foreach ($datas as $data) :
+                                    ?>
+
+                                        <tr>
+                                            <td><?= $data['idgeoloc'] ?></td>
+                                            <td><?= $data['title'] ?></td>
+                                            <td><?= $data['geolocdesc'] ?></td>
+                                            <td><?= $data['latitude'] ?></td>
+                                            <td><?= $data['longitude'] ?></td>
+                                            <td class="text-center"><a href="?update=<?= $data['idgeoloc'] ?>"><img src="../img/editIcone.png" alt="update" /></a></td>
+                                            <td class="text-center"><a href="?delete=<?= $data['idgeoloc'] ?>"><img src="../img/deleteIcon.png" alt="delete" /></a></td>
+
+                                        </tr>
+
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </section>
