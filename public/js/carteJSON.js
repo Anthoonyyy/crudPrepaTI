@@ -71,13 +71,18 @@ function afficheListe(liste) {
     divListe.appendChild(ul);
 }
 
-function itemClick() {
-    let id = this.getAttribute("id");
-    let latitude = this.getAttribute("latitude");
-    let longitude = this.getAttribute("longitude");
 
-    console.log('item cliqué : ' + id);
-    let marqueur = markerTable[id - 1];
+
+function itemClick() {
+    console.log('Item cliqué');
+    let latitude = this.getAttribute('latitude');
+    let longitude = this.getAttribute('longitude');
+    let id = this.getAttribute('id');
+    console.log(`${latitude} ${longitude}`);
+
+    let marqueur = markerTable[id];
+
+    map.flyTo([latitude, longitude], 17);
+
     marqueur.togglePopup();
-    map.flyTo([latitude, longitude], 16);
 }
