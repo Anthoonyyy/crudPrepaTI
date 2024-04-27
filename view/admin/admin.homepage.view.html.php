@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
-                            <table class="table table-bordered" data-toggle="table" data-show-columns="true" data-search="true" data-pagination="true" data-checkbox-header="false">
+                            <table class="table table-bordered table-striped" data-toggle="table" data-show-columns="true" data-search="true" data-pagination="true" data-checkbox-header="true">
                                 <thead>
                                     <tr>
                                         <th data-checkbox="true" data-click-to-select="true">Id</th>
